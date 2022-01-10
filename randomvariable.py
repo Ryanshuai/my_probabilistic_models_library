@@ -46,7 +46,8 @@ class RandomVariable:
             parent.possible_value = tuple(range(parent.cardinality))
             parent.reset_possible_values()
 
-    def p(self, specify_dict):
+    def p(self, specify_dict=None):
+        specify_dict = specify_dict or dict()
         self.find_all_relevant_rv()
         for name, value in specify_dict.items():
             self.relied_rv[name].possible_value = (value,)
@@ -59,3 +60,11 @@ class RandomVariable:
             p_res += p_comb
         self.reset_possible_values()
         return p_res
+
+
+class Graph:
+    def __init__(self, nodes):
+        nodes = None
+
+    def p(self, specify_dict):
+        pass

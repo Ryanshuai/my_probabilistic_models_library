@@ -10,4 +10,10 @@ pm_mat = [[0.95, 0.05], [0.1, 0.9]]
 M = RandomVariable("M", 2, pm_mat, (A,))
 
 print(M.p({"M": 1}))
+print(M.p())
 print(A.p({"A": 1}))
+
+print(A.p({"B": 1, "A": 1}) / A.p({"A": 1}))
+print(A.p({"B": 1, "A": 1, "E": 1}) / A.p({"A": 1, "E": 1}))
+print(M.p({"B": 1, "M": 1}) / M.p({"M": 1}))
+print(M.p({"B": 1, "M": 1, "E": 1}) / M.p({"M": 1, "E": 1}))
