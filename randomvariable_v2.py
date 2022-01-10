@@ -4,12 +4,13 @@ from functools import reduce
 
 
 class RandomVariable:
-    def __init__(self, cardinality, p_matrix, parents=None):
+    def __init__(self, p_matrix, parents=None):
         assert parents is None or isinstance(parents, tuple)
-        self.cardinality = cardinality
+
         self.p_matrix = np.array(p_matrix)
+        self.cardinality = self.p_matrix.shape[-1]
         self.parents = parents or ()
-        self.possible_value = tuple(range(cardinality))
+        self.possible_value = tuple(range(self.cardinality))
         self.dependent_rv = None
 
     def check_p_matrix(self):
