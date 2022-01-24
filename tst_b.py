@@ -57,10 +57,10 @@ mat = [[[[1, 0],
          [0, 1]]]]
 RR = RandomVariable(mat, parents=(RT, SR0, SR1))
 
-p1 = p(({C: 1, RR: 1, RL: 1}))
+p1 = p(({C: 1, RR: 1, RL: 1, SL0: 1, SR0: 1}))
 print(p1)
 
-p2 = p(({RR: 1, RL: 1}))
+p2 = p(({RR: 1, RL: 1, SL0: 1, SR0: 1}))
 print(p2)
 
 print(p1 / p2)
